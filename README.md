@@ -17,7 +17,18 @@ Ce projet vise à détecter les hologrammes présents sur des passeports du data
 Une fois traitées, ces images sont crop pour réduire les bords noirs qui peuvent apparaitre (-10px) 
 - Découpage en patchs : Les images redressées des passeports sont découpées en petits patchs de 28×28 pixels. Ces patchs sont ensuite réorganisés sous forme de mosaïques de taille fixe (8 × 28 = 224 pixels) afin de correspondre au format d’entrée attendu par le modèle. Ce découpage permet une analyse fine et localisée des différentes zones du document. Lorsque le nombre de patchs disponibles est insuffisant pour remplir complètement une mosaïque (en raison d’un nombre de frames variable selon les vidéos), les patchs existants sont répétés. Cette stratégie permet d’éviter l’apparition de zones noires dans les mosaïques, garantissant ainsi une entrée cohérente pour le modèle. 
 - Classification des mosaïques : Chaque patch issu des mosaïques est ensuite classifié individuellement par le modèle, selon deux classes possibles : "Holo" (présence d’un hologramme) ou "No-Holo" (absence). 
-- Visualisation des résultats :
+- Entraînement des modèles de classification de mosaiques :
+
+- **Modèle pré-entraîné Mobilenet : f1score : 91,86%**
+
+![confusion_matrix](https://github.com/user-attachments/assets/4847c6cd-b5be-4dd4-80cc-fcb57964368a) ![loss_curve](https://github.com/user-attachments/assets/02535e95-af74-44cf-af46-b21d4f285268)
+
+- **ViT small patch16 224: f1score : 95,92%**
+
+![confusion_matrix](https://github.com/user-attachments/assets/c382ae70-03c4-4884-9a4d-9495dbbe429b)
+
+
+
 - Les prédictions sont utilisées pour colorer les patchs sur les images des vidéos d’origine : les patchs "Holo" sont colorés en vert, les patchs "No-Holo" en rouge. Cette visualisation permet de localiser clairement les zones détectées comme holographiques. 
 - Calcul du ratio de patchs verts : Pour chaque passeport, nous calculons le ratio de patchs verts parmi tous les patchs colorés. Ce ratio reflète la proportion d’hologramme détecté : un ratio élevé suggère une forte présence d’hologramme, un ratio faible indique une absence probable. 
 -Détermination du seuil de classification : Deux approches sont testées déterminer un seuil de décision optimal : une méthode basée sur le min/max des ratios observés entre les classes "Holo" et "No-Holo", et une régression logistique pour modéliser la séparation entre les deux distributions. 
