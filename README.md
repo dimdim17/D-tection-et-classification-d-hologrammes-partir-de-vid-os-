@@ -1,6 +1,6 @@
 **Détection et classification d’hologrammes (à partir de vidéos)**
 
-**Présentation du projet**
+**Présentation du projet - Approche par patchs & mosaiques**
 
 Ce projet vise à détecter les hologrammes présents sur des passeports du dataset **[MIDV-HOLO](https://github.com/SmartEngines/midv-holo)**, puis à les classer en deux catégories : "Holo"  et "No-Holo". Pour cela, nous combinons des techniques de deep learning et de vision par ordinateur, en testant deux architectures de modèles : MobileNet et un Small Vision Transformer (ViT). 
 - Dans un premier temps, un traitement d’image est appliqué pour corriger la surexposition causée par les flashs. Les images sont ensuite découpées en patchs afin de générer des mosaïques, utilisées comme données d’entrée pour l’entraînement des modèles. 
