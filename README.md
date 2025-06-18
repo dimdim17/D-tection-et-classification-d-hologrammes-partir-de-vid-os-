@@ -9,7 +9,7 @@ Ce projet vise à détecter les hologrammes présents sur des passeports du data
 
 **Pipeline de traitement et de classification**
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/d4eaf7a0-5b87-4a64-bd6b-36811d5108d8" alt="Mosaïque" width="600"/>
+  <img src="https://github.com/user-attachments/assets/e65153c5-cf6c-44fd-9368-182ccd13ba7d" alt="Mosaïque" width="600"/>
 </p>
 
 - Homographie : À partir des coordonnées détectées des passeports dans les vidéos, nous avons appliqué une transformation par homographie pour extraire et redresser les passeports. Cette étape permet de standardiser les images en supprimant les variations de fond, d’échelle et de perspective, assurant ainsi une meilleure cohérence pour les traitements ultérieurs. 
@@ -33,7 +33,11 @@ Une fois traitées, ces images sont crop pour réduire les bords noirs qui peuve
 - Calcul du ratio de patchs verts : Pour chaque passeport, nous calculons le ratio de patchs verts parmi tous les patchs colorés. Ce ratio reflète la proportion d’hologramme détecté : un ratio élevé suggère une forte présence d’hologramme, un ratio faible indique une absence probable. 
 -Détermination du seuil de classification : Deux approches sont testées déterminer un seuil de décision optimal : une méthode basée sur le min/max des ratios observés entre les classes "Holo" et "No-Holo", et une régression logistique pour modéliser la séparation entre les deux distributions. 
 -Classification finale : Les passeports sont ensuite classés automatiquement en "Holo" ou "No-Holo" selon que leur ratio dépasse ou non le seuil déterminé. 
--Résultats de Classification 
+-Résultats de Classification : holo (origins) et no-holo (copy without holo) : 20 vidéos au total , prédiction:100%
+![ratio_red_classification_regression](https://github.com/user-attachments/assets/11847a2e-005c-491c-ab2f-60b93cf7866f)
+
+holo (origins) et no-holo (photo_replacement) : 20 vidéos au total , prédiction:84,21% 
+![ratio_green_avec photo_replacement](https://github.com/user-attachments/assets/c35daf6d-1c6f-428d-8bbd-3cfa21b25ff1)
 
 **Conclusion :**
 L’approche mise en place a donné de bons résultats pour détecter et classer les hologrammes présents sur les passeports. En utilisant des mosaïques générées à partir de patchs, nous avons pu distinguer efficacement les passeports contenant un hologramme de ceux qui n’en ont pas.  
