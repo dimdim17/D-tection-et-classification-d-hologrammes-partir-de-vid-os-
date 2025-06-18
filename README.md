@@ -53,7 +53,7 @@ holo (origins) et no-holo (photo_replacement), feature (green ratio) : 20 vidéo
 ![ratio_green_avec photo_replacement](https://github.com/user-attachments/assets/c35daf6d-1c6f-428d-8bbd-3cfa21b25ff1)
 
 **Conclusion :**
-L’approche mise en place a donné de bons résultats pour détecter et classer les hologrammes présents sur les passeports. En utilisant des mosaïques générées à partir de patchs, nous avons pu distinguer efficacement les passeports contenant un hologramme de ceux qui n’en ont pas.  
+L’approche mise en place a donné de bons résultats pour détecter et classer les hologrammes présents sur les passeports. En utilisant des mosaïques générées à partir de patchs, nous avons pu distinguer efficacement les passeports contenant un hologramme de ceux qui n’en ont pas. En revanche, les résultats sont moins satisfaisants pour les passeports frauduleux avec remplacement de photo, ce qui constitue un axe d'amélioration à explorer.
 
 **Pistes d’amélioration :**
 Pour aller plus loin, une des perspectives serait d’adapter notre méthode à des passeports présentant des hologrammes plus complexes ou moins visibles, également tester de vrais passeports avec différents motifs d'hologrammes. Il serait aussi intéressant d’exploiter la dimension temporelle des vidéos en utilisant un réseau de neurones convolutif 3D (CNN 3D), ce qui permettrait de mieux capter les variations lumineuses liées aux hologrammes et d'améliorer la précision de la classification. 
