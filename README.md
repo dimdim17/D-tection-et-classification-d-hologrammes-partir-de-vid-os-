@@ -3,7 +3,20 @@
 **Présentation du projet - Approche par patchs & mosaiques**
 
 Ce projet vise à détecter les hologrammes présents sur des passeports du dataset **[MIDV-HOLO](https://github.com/SmartEngines/midv-holo)**, puis à les classer en deux catégories : "Holo"  et "No-Holo". Pour cela, nous combinons des techniques de deep learning et de vision par ordinateur, en testant deux architectures de modèles : MobileNet et un Small Vision Transformer (ViT). 
-- Dans un premier temps, un prétraitement est appliqué aux images afin d'extraire uniquement les zones contenant les passeports, ce qui permet de réduire les variations de fond à l’aide d’une transformation par homographie. Ensuite, un seuillage est utilisé pour corriger la surexposition due aux flashs. Les images ainsi traitées sont découpées en patchs, puis assemblées sous forme de mosaïques, qui servent de données d’entrée pour l’entraînement des modèles. 
+- Dans un premier temps, un prétraitement est appliqué aux images afin d'extraire uniquement les zones contenant les passeports, ce qui permet de réduire les variations de fond à l’aide d’une transformation par homographie. Ensuite, un seuillage est utilisé pour corriger la surexposition due aux flashs. Les images ainsi traitées sont découpées en patchs, puis assemblées sous forme de mosaïques, qui servent de données d’entrée pour l’entraînement des modèles.
+  Mosaiques avant / après seuillage :
+
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/9197c939-c487-4ebc-9c54-ba6aa1485a80" alt="Mosaïque" width="350"/>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ca304609-fd8a-47ab-a82b-3eccb83f7a23" alt="Mosaïque" width="350"/>
+</p>
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/5b84fdfe-a99a-4ea9-a314-0334126c435f" alt="Mosaïque" width="350"/>
+</p>
+
+
 - Une fois les modèles entraînés, nous les utilisons pour prédire, à partir de vidéos, la classe de chaque patch : les zones détectées comme contenant un hologramme sont colorées en vert, les autres sont colorées en rouge. Ce processus permet de localiser précisément les hologrammes dans les vidéos. 
 - Enfin, pour chaque vidéo, nous calculons un ratio de patchs verts (c’est-à-dire détectés comme "Holo"). Ce ratio permet de définir automatiquement un seuil de classification entre les deux classes. Ce seuil est établi comme la moyenne entre : le minimum des ratios observés dans les vidéos Holo, et le maximum des ratios observés dans les vidéos No-Holo. Cette approche permet une classification fine, visuelle et robuste des passeports. 
 
