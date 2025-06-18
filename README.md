@@ -33,10 +33,10 @@ Une fois traitées, ces images sont crop pour réduire les bords noirs qui peuve
 - Calcul du ratio de patchs verts : Pour chaque passeport, nous calculons le ratio de patchs verts parmi tous les patchs colorés. Ce ratio reflète la proportion d’hologramme détecté : un ratio élevé suggère une forte présence d’hologramme, un ratio faible indique une absence probable. 
 -Détermination du seuil de classification :  déterminer un seuil de décision optimal en se basant sur le min/max des ratios observés entre les classes "Holo" et "No-Holo", et une régression logistique pour modéliser la séparation entre les deux distributions. 
 -Classification finale : Les passeports sont ensuite classés automatiquement en "Holo" ou "No-Holo" selon que leur ratio dépasse ou non le seuil déterminé. 
--Résultats de Classification : holo (origins) et no-holo (copy without holo) : 20 vidéos au total , prédiction:100%
+-Résultats de Classification : holo (origins) et no-holo (copy without holo), feature (red ratio) : 20 vidéos au total , prédiction:100%
 ![ratio_red_classification_regression](https://github.com/user-attachments/assets/11847a2e-005c-491c-ab2f-60b93cf7866f)
 
-holo (origins) et no-holo (photo_replacement) : 20 vidéos au total , prédiction:84,21% 
+holo (origins) et no-holo (photo_replacement), feature (green ratio) : 20 vidéos au total , prédiction:84,21% 
 ![ratio_green_avec photo_replacement](https://github.com/user-attachments/assets/c35daf6d-1c6f-428d-8bbd-3cfa21b25ff1)
 
 **Conclusion :**
